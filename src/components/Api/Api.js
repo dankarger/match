@@ -4,13 +4,28 @@ export const axiosApi = axios.create({ baseURL: 'https://61c2f2dc9cfb8f0017a3e7c
 // const API='https://61c2f2dc9cfb8f0017a3e7c8.mockapi.io/shoes/'
 
 export const getDataBase= async ()=>{
-    const DATA = await axiosApi.get('');
-    console.log('ds',DATA)
-    return DATA.data
+    try {
+        const data =   axiosApi.get('')
+        const shoes= await data
+        return shoes
+
+
+    }catch (err){
+        console.log(err)
+    }
 }
 
 
-export const findShoe=(id)=>{
-    const DATA= getDataBase();
-    return DATA.find(shoe=>shoe.id===id);
+export const findShoe= async (id)=>{
+    // const DATA= getDataBase();
+    // return DATA.find(shoe=>shoe.id===id);
+    let selectedShoe ;
+    await axiosApi.get(`/${id}`)
+        .then(res=>{selectedShoe=res})
+    return selectedShoe
+
+}
+
+export const deleteShoe=(id)=>{
+
 }

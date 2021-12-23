@@ -1,0 +1,24 @@
+button {
+    font-size: 1rem;
+    border-radius:5px;
+    /*box-shadow: 2px 2px 15px grey;*/
+    text-shadow: 1px 1px 12px grey;
+    width:100%;
+    height: 100%;
+
+}
+.Button-div {
+    height: 100%;
+    width: 100%;
+}
+.red {
+    background: whitesmoke;
+    color:red;
+    text-shadow: #363131 1px 1px ;
+}
+
+.green {
+    background: whitesmoke;
+    color:limegreen;
+    text-shadow:#363131  1px 1px ;
+}

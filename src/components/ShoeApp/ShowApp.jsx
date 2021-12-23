@@ -8,13 +8,15 @@ import './ShoeApp.css'
 
 
 class ShoeApp extends React.Component {
-        state = {data:[]}
+        state = {data:[],isEdit:false}
 
 
     componentDidMount() {
-            const DATA = getDataBase();
-            console.log('dd',DATA)
-            this.setState({data:DATA.data})
+            getDataBase().then((result)=>{
+                this.setState({data:result.data},()=> console.log('dd',result.data))
+
+            });
+
     }
 
 
