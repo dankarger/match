@@ -6,5 +6,11 @@ export const axiosApi = axios.create({ baseURL: 'https://61c2f2dc9cfb8f0017a3e7c
 export const getDataBase= async ()=>{
     const DATA = await axiosApi.get('');
     console.log('ds',DATA)
-    return DATA
+    return DATA.data
+}
+
+
+export const findShoe=(id)=>{
+    const DATA= getDataBase();
+    return DATA.find(shoe=>shoe.id===id);
 }

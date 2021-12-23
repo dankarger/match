@@ -23,7 +23,7 @@ class ShoeApp extends React.Component {
             <div>
                 <BrowserRouter >
                     <Routes>
-                        <Route path='/' element={<HomePage/>} />
+                        <Route path='/' element={<HomePage data={this.state.data}/>} />
 
                     </Routes>
 
