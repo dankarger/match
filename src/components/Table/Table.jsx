@@ -27,71 +27,6 @@ class Table extends React.Component {
     render() {
         return (
             <div>
-                {/*<table className="ui celled table">*/}
-                {/*    <thead>*/}
-                {/*    <tr>*/}
-                {/*        <th>Brand</th>*/}
-                {/*        <th>Model</th>*/}
-                {/*        <th>Size</th>*/}
-                {/*    </tr>*/}
-                {/*    </thead>*/}
-                {/*    <tbody>*/}
-                {/*    {this.getShoesTd()}*/}
-
-                {/*    </tbody>*/}
-                {/*</table>*/}
-
-
-                {/*<table className="ui celled striped table">*/}
-                {/*    <thead>*/}
-                {/*    <tr>*/}
-                {/*        <th colSpan="3">*/}
-                {/*            Git Repository*/}
-                {/*        </th>*/}
-                {/*    </tr>*/}
-                {/*    </thead>*/}
-                {/*    <tbody>*/}
-                {/*    <tr>*/}
-                {/*        <td className="collapsing">*/}
-                {/*            <i className="folder icon"></i> node_modules*/}
-                {/*        </td>*/}
-                {/*        <td>Initial commit</td>*/}
-                {/*        <td className="right aligned collapsing">10 hours ago</td>*/}
-                {/*    </tr>*/}
-                {/*    <tr>*/}
-                {/*        <td>*/}
-                {/*            <i className="folder icon"></i> test*/}
-                {/*        </td>*/}
-                {/*        <td>Initial commit</td>*/}
-                {/*        <td className="right aligned">10 hours ago</td>*/}
-                {/*    </tr>*/}
-                {/*    <tr>*/}
-                {/*        <td>*/}
-                {/*            <i className="folder icon"></i> build*/}
-                {/*        </td>*/}
-                {/*        <td>Initial commit</td>*/}
-                {/*        <td className="right aligned">10 hours ago</td>*/}
-                {/*    </tr>*/}
-                {/*    <tr>*/}
-                {/*        <td>*/}
-                {/*            <i className="file outline icon"></i> package.json*/}
-                {/*        </td>*/}
-                {/*        <td>Initial commit</td>*/}
-                {/*        <td className="right aligned">10 hours ago</td>*/}
-                {/*    </tr>*/}
-                {/*    <tr>*/}
-                {/*        <td>*/}
-                {/*            <i className="file outline icon"></i> Gruntfile.js*/}
-                {/*        </td>*/}
-                {/*        <td>Initial commit</td>*/}
-                {/*        <td className="right aligned">10 hours ago</td>*/}
-                {/*    </tr>*/}
-                {/*    {this.getShoesTd()}*/}
-
-                {/*    </tbody>*/}
-                {/*</table>*/}
-
-
                 <table className="ui celled table">
                     <thead>
                     <tr>
@@ -102,21 +37,9 @@ class Table extends React.Component {
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td data-label="Name">James</td>
-                        <td data-label="Age">24</td>
-                        <td data-label="Job">Engineer</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Jill</td>
-                        <td data-label="Age">26</td>
-                        <td data-label="Job">Engineer</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Elyse</td>
-                        <td data-label="Age">24</td>
-                        <td data-label="Job">Designer</td>
-                    </tr>
+
+
+
                     {this.getShoesTd()}
                     </tbody>
                 </table>
