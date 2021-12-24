@@ -11,5 +11,17 @@ label {
     background: rgba(255, 0, 0, 0.56);
 }
 .fields {
-    margin:auto
+    margin:5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui form{
+    padding:1rem;
+}
+.header {
+    text-decoration: underline;
+    margin-bottom: 1rem;
+    margin-top:1rem;
 }

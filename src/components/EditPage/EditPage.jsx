@@ -91,6 +91,17 @@ class EditPage extends  React.Component {
 
         return(
             <div>
+                <div className="header">
+                    <h2 className="ui icon header">
+                        <i className="settings icon"></i>
+                        <div className="content">
+
+                            <div className="sub header">{this.state.isNew && <h1>Add Shoe</h1>} {!this.state.isNew && <h1>Edit Shoe</h1>}</div>
+                        </div>
+                    </h2>
+
+                </div>
+
                 <div className="ui form">
                     <div className="fields">
                         <div className="field">
@@ -112,10 +123,10 @@ class EditPage extends  React.Component {
 
                 <div className="EditPage-buttons-divs">
                     <Button callback={this.handleAcceptButton}  name='Accept changes' icon={<i className="fas fa-edit"></i>} />
-                    <Link className='ui button' to='/'>cancel</Link>
-                    {this.state.isMessage && this.injectMessage()}
 
                     { !this.state.isNew && <Button callback={this.handleDeleteButton}  name='Delete' icon={<i className="fas fa-edit"></i>} />}
+                    <Link className='ui button' to='/'>cancel</Link>
+                    {this.state.isMessage && this.injectMessage()}
 
                 </div>
 
