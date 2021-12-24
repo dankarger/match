@@ -27,6 +27,7 @@ export const findShoe= async (id)=>{
 }
 
 export const deleteShoe= async (id)=>{
+    console.log('fdfdf')
     let selectedShoe ;
     await axiosApi.delete(`/${id}`)
         .then(res=>{selectedShoe=res})

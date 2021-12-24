@@ -1,8 +1,16 @@
 import React from "react";
 import './Table.css'
 import Button from "../Button/Button";
+import EditPageWrapper from "../EditPage/EditPageWraper";
+import {Link} from "react-router-dom";
 
 class Table extends React.Component {
+  // handleEditButton=(e)=>{
+  //    return (
+  //        <Link to={`/edit/${e.target.value}`}>
+  //    )
+  //     </Link>
+  // }
 
     getShoesTd = () => {
         console.log('dasdasd', this.props.data)
@@ -13,7 +21,11 @@ class Table extends React.Component {
                         <td data-label="Brand">{shoe.brand}</td>
                         <td data-label="Model">{shoe.model}</td>
                         <td data-label="Size">{shoe.size}</td>
-                        <Button name='Edit' icon={<i className="fas fa-edit"></i>} />
+
+                        {/*<Link to={`/edit/${shoe.id}`}>*/}
+                        {/*    <Button onClick={this.handleEditButton}  name='Edit' icon={<i className="fas fa-edit"></i>} />*/}
+
+                        {/*</Link>*/}
                     </tr>
                 )
             })

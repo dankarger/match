@@ -9,6 +9,7 @@ export default function  EditPageWrapper() {
     console.log(id)
     return(
         <div>
+
           <EditPage id={{id}} />
         </div>
     )
