@@ -36,6 +36,8 @@ class EditPage extends  React.Component {
     handleDeleteButton=()=>{
 
         deleteShoe(this.props.id.id).then(res=>this.props.history.push('/'))
+        this.setState({shoe:{},brand:'',model:'',size:''},()=>this.showMessage('Shoe Deleted'))
+
     }
     handleCancelButton=()=> {
       this.setState({redirect:true})
@@ -58,20 +60,25 @@ class EditPage extends  React.Component {
                 size:this.state.size
             }
             if(newShoe.brand!=='' && newShoe.model!==''&& newShoe.size!=='' ){
-                return AddeShoe(newShoe)
+                AddeShoe(newShoe)
+                this.setState({shoe:{},brand:'',model:'',size:''},()=>this.showMessage('Show Added'))
+                return
             }else{
-               this.showMessage()
+               this.showMessage('Please Enter a valid input')
                 return
             }
 
         }
 
-        UpdateShoe(this.state.shoe.id, shoe)
+        UpdateShoe(this.state.shoe.id, shoe);
+       this.showMessage('Shoe Updated');
+
         }
 
-        showMessage=()=>{
-           this.setState({message:'Please enter a valid input',isMessage:true},()=>{
+        showMessage=(message)=>{
+           this.setState({message:message,isMessage:true},()=>{
                setTimeout(()=>{this.setState({message:'',isMessage:false})},1000)
+
            })
 
         }
@@ -79,7 +86,6 @@ class EditPage extends  React.Component {
             if(this.state.isMessage){
                 return(
                     <div className="Message-div ">
-
                         <Message message={this.state.message}/>
                     </div>
                 )
