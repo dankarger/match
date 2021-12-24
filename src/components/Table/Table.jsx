@@ -32,7 +32,7 @@ state = {data:[]}
                         <td data-label="Model">{shoe.model}</td>
                         <td data-label="Size">{shoe.size}</td>
 
-                        <Link to={`/edit/${shoe.id}`}> Edit</Link>
+                        <Link className="ui button" to={`/edit/${shoe.id}`}> Edit</Link>
                         {/*    <Button onClick={this.handleEditButton}  name='Edit' icon={<i className="fas fa-edit"></i>} />*/}
 
                         {/*</Link>*/}

@@ -7,7 +7,7 @@ export default function NavBar() {
 
     return(
         <div>
-            <h1>Shoe </h1>
+            <h1>Shoe Store </h1>
             <div className="ui three item menu">
                 <Link to='/' className="item">Home</Link>
                 <Link  to='/create/new' className="item">Add Shoe</Link>

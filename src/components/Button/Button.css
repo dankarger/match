@@ -9,8 +9,7 @@ button {
 }
 .Button-div {
     /* */
-    height: 100%;
-    width: 100%;
+
     transition: 300ms ease-in;
     text-align: center;
     /*display: flex;*/

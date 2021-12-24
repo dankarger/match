@@ -3,10 +3,11 @@ import './EditPage.css'
 import Button from "../Button/Button";
 import {deleteShoe, findShoe, UpdateShoe, AddeShoe} from "../Api/Api";
 import {Link} from "react-router-dom";
+import Message from "../Message/Mesage";
 
 
 class EditPage extends  React.Component {
-       state={shoe:{},brand:'',model:'',size:'',redirect:false,isNew:false}
+       state={shoe:{},brand:'',model:'',size:'',redirect:false,isNew:false,isMessage:false,message:'Please Enter a Valid Input'}
 
     componentDidMount() {
         const {id} = this.props
@@ -56,10 +57,34 @@ class EditPage extends  React.Component {
                 model:this.state.model,
                 size:this.state.size
             }
-            return AddeShoe(newShoe)
+            if(newShoe.brand!=='' && newShoe.model!==''&& newShoe.size!=='' ){
+                return AddeShoe(newShoe)
+            }else{
+               this.showMessage()
+                return
+            }
+
         }
+
         UpdateShoe(this.state.shoe.id, shoe)
-}
+        }
+
+        showMessage=()=>{
+           this.setState({message:'Please enter a valid input',isMessage:true},()=>{
+               setTimeout(()=>{this.setState({message:'',isMessage:false})},1000)
+           })
+
+        }
+        injectMessage(){
+            if(this.state.isMessage){
+                return(
+                    <div className="Message-div ">
+
+                        <Message message={this.state.message}/>
+                    </div>
+                )
+            }
+        }
 
     render() {
 
@@ -81,11 +106,16 @@ class EditPage extends  React.Component {
                             <input type="text" onChange={this.handleOnChane} placeholder={this.state.size} name="size"  value={this.state.size}/>
                         </div>
                     </div>
-                    <div className="EditPage-buttons-divs">
-                        <Button callback={this.handleAcceptButton}  name='Accept changes' icon={<i className="fas fa-edit"></i>} />
-                        <Button callback={this.handleDeleteButton}  name='Delete' icon={<i className="fas fa-edit"></i>} />
-                        <Link to='/'>cancel</Link>
-                    </div>
+
+
+                </div>
+
+                <div className="EditPage-buttons-divs">
+                    <Button callback={this.handleAcceptButton}  name='Accept changes' icon={<i className="fas fa-edit"></i>} />
+                    <Link className='ui button' to='/'>cancel</Link>
+                    {this.state.isMessage && this.injectMessage()}
+
+                    { !this.state.isNew && <Button callback={this.handleDeleteButton}  name='Delete' icon={<i className="fas fa-edit"></i>} />}
 
                 </div>
 
