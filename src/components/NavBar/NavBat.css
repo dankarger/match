@@ -1,0 +1,18 @@
+#NavBar .link {
+
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-shadow: 1px 1px whitesmoke;
+    box-shadow: 1px 1px 1px grey;
+    transition: 200ms ease-in;
+    filter:grayscale(20%);
+    background: rgba(115, 115, 232, 0.3);
+
+}
+
+#NavBar .link:hover {
+    opacity: 0.8;
+    filter:brightness(80%);
+    /*background: rgba(115, 115, 232, 0.47);*/
+
+}
