@@ -39,6 +39,8 @@ class ShoeApp extends React.Component {
                         {/*<Route path='/' element ={<NavBar />} />*/}
                         <Route path='/' exact element={<HomePage data={this.state.data} callback={this.handleEditButton}/>} />
                         <Route path='/edit/:id' element={<EditPageWrapper />} />
+                        <Route path='/create/:id' element={<EditPageWrapper />} />
+
                     </Routes>
 
 
@@ -50,3 +52,8 @@ class ShoeApp extends React.Component {
 
 }
 export default ShoeApp
+
+
+// TODO redirect
+// TODO : Images?
+//     TODO:readme.md

@@ -33,3 +33,16 @@ export const deleteShoe= async (id)=>{
         .then(res=>{selectedShoe=res})
     return selectedShoe
 }
+
+export const UpdateShoe= async (id,shoe)=>{
+  console.log('fdsfd',shoe)
+   await axiosApi.put(`/${id}`,shoe)
+
+}
+
+
+export const AddeShoe= async (shoe)=>{
+    console.log('fdsfd',shoe)
+    await axiosApi.post(`/`, shoe )
+
+}

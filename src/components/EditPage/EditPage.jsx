@@ -1,38 +1,68 @@
 import React from "react";
 import './EditPage.css'
 import Button from "../Button/Button";
-import {deleteShoe,findShoe} from "../Api/Api";
-import {Link, Navigate} from "react-router-dom";
+import {deleteShoe, findShoe, UpdateShoe, AddeShoe, axiosApi} from "../Api/Api";
+import {Link} from "react-router-dom";
 
 
 class EditPage extends  React.Component {
-       state={shoe:{},brand:'',model:'',size:''}
+       state={shoe:{},brand:'',model:'',size:'',redirect:false,isNew:false}
 
     componentDidMount() {
-           const{id}=this.props
-           console.log('id',id)
-        findShoe(id.id)
-            .then(res=>this.setState({shoe:res.data,brand:res.data.brand,
-                                            model:res.data.model,size:res.data.size}))
+        const {id} = this.props
+        console.log('id', id)
+        if (id.id === 'new') {
+            let shoe = {
+                // id:new Date()+(Math.floor(Math.random()*100)+1),
+                brand: '',
+                model: '',
+                size: ''
+            }
+            this.setState({shoe: shoe, isNew: true})
+            return shoe
+        } else {
+            findShoe(id.id)
+                .then(res => this.setState({
+                    shoe: res.data, brand: res.data.brand,
+                    model: res.data.model, size: res.data.size
+                }))
+        }
     }
-
     handleOnChane=(e)=>{
         const { name, value } = e.target;
             this.setState({ [name]:value} )
     }
     handleDeleteButton=()=>{
-        console.log('sdfsdfsdfsdfsdfsdfsdfsdf')
+
         deleteShoe(this.props.id.id).then(res=>this.props.history.push('/'))
     }
-    handleCancelButton=()=>{
-        // Navigate(`/`);
+    handleCancelButton=()=> {
+      this.setState({redirect:true})
 
     }
     handleAcceptButton=()=>{
 
+
+           let shoe={
+               id:this.state.shoe.id,
+               brand:this.state.brand,
+               model:this.state.model,
+               size:this.state.size
+           }
+        if(this.state.isNew) {
+
+            let newShoe={
+                brand:this.state.brand,
+                model:this.state.model,
+                size:this.state.size
+            }
+            return AddeShoe(newShoe)
+        }
+        UpdateShoe(this.state.shoe.id, shoe)
 }
 
     render() {
+
        const{shoe}=this.state
         return(
             <div>
@@ -53,12 +83,9 @@ class EditPage extends  React.Component {
                     </div>
                     <div className="EditPage-buttons-divs">
                         <Button callback={this.handleAcceptButton}  name='Accept changes' icon={<i className="fas fa-edit"></i>} />
-                        <Button callback={this.handleCancelButton}  name='Cancel changes' icon={<i className="fas fa-edit"></i>} />
+                        <Button callback={this.handleDeleteButton}  name='Delete' icon={<i className="fas fa-edit"></i>} />
+                        <Link to='/'>cancel</Link>
                     </div>
-                    <Link to={'/'}>
-                        <Button className={'red'} callback={this.handleDeleteButton}  name='Delete from store ' icon={<i className="fas fa-edit"></i>} />
-
-                    </Link>
 
                 </div>
 

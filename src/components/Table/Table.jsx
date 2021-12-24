@@ -3,26 +3,38 @@ import './Table.css'
 import Button from "../Button/Button";
 import EditPageWrapper from "../EditPage/EditPageWraper";
 import {Link} from "react-router-dom";
+import {getDataBase} from "../Api/Api";
 
 class Table extends React.Component {
-  // handleEditButton=(e)=>{
-  //    return (
-  //        <Link to={`/edit/${e.target.value}`}>
-  //    )
-  //     </Link>
-  // }
+state = {data:[]}
 
+
+    componentDidMount() {
+        getDataBase().then((result)=>{
+            this.setState({data:result.data},()=> console.log('dd',result.data))
+
+        });
+
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        // getDataBase().then((result)=>{
+        //     this.setState({data:result.data},()=> console.log('dd',result.data))
+        //
+        // });
+
+    }
     getShoesTd = () => {
-        console.log('dasdasd', this.props.data)
-        if (this.props.data) {
-            return this.props.data.map(shoe => {
+        console.log('dasdasd', this.state.data)
+        if (this.state.data) {
+            return this.state.data.map(shoe => {
                 return (
                     <tr key={shoe.id}>
                         <td data-label="Brand">{shoe.brand}</td>
                         <td data-label="Model">{shoe.model}</td>
                         <td data-label="Size">{shoe.size}</td>
 
-                        {/*<Link to={`/edit/${shoe.id}`}>*/}
+                        <Link to={`/edit/${shoe.id}`}> Edit</Link>
                         {/*    <Button onClick={this.handleEditButton}  name='Edit' icon={<i className="fas fa-edit"></i>} />*/}
 
                         {/*</Link>*/}
