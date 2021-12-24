@@ -1,7 +1,6 @@
 import React from "react";
 import Table from "../../components/Table/Table";
 import './HomePage.css';
-import {Link} from "react-router-dom";
 
 
 

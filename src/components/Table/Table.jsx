@@ -1,7 +1,5 @@
 import React from "react";
 import './Table.css'
-import Button from "../Button/Button";
-import EditPageWrapper from "../EditPage/EditPageWraper";
 import {Link} from "react-router-dom";
 import {getDataBase} from "../Api/Api";
 

@@ -1,8 +1,7 @@
 import React from "react";
 import {getDataBase} from "../Api/Api";
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from "../../pages/HomePage/HomePage";
-import EditPage from "../../components/EditPage/EditPage";
 import EditPageWrapper from "../EditPage/EditPageWraper";
 import './ShoeApp.css'
 import NavBar from "../NavBar/NavBar";
@@ -55,5 +54,6 @@ export default ShoeApp
 
 
 // TODO redirect
+// TODO:style form
 // TODO : Images?
 //     TODO:readme.md

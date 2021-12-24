@@ -1,7 +1,7 @@
 import React from "react";
 import './EditPage.css'
 import Button from "../Button/Button";
-import {deleteShoe, findShoe, UpdateShoe, AddeShoe, axiosApi} from "../Api/Api";
+import {deleteShoe, findShoe, UpdateShoe, AddeShoe} from "../Api/Api";
 import {Link} from "react-router-dom";
 
 
@@ -19,7 +19,7 @@ class EditPage extends  React.Component {
                 size: ''
             }
             this.setState({shoe: shoe, isNew: true})
-            return shoe
+
         } else {
             findShoe(id.id)
                 .then(res => this.setState({
@@ -63,7 +63,7 @@ class EditPage extends  React.Component {
 
     render() {
 
-       const{shoe}=this.state
+
         return(
             <div>
                 <div className="ui form">
