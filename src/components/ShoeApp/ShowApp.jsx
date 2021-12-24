@@ -35,14 +35,10 @@ class ShoeApp extends React.Component {
                 <BrowserRouter >
                 <NavBar />
                     <Routes>
-                        {/*<Route path='/' element ={<NavBar />} />*/}
                         <Route path='/' exact element={<HomePage data={this.state.data} callback={this.handleEditButton}/>} />
                         <Route path='/edit/:id' element={<EditPageWrapper />} />
                         <Route path='/create/:id' element={<EditPageWrapper />} />
-
                     </Routes>
-
-
                 </BrowserRouter>
 
             </div>
